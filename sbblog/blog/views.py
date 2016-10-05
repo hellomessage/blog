@@ -6,35 +6,42 @@ from blog.models import Post
 
 # Create your views here.
 
-#--- ListView
-class PostLV(ListView) :
+
+# --- ListView
+class PostLV(ListView):
     model = Post
     template_name = 'blog/post_all.html'
     context_object_name = 'posts'
     paginate_by = 2
 
-#--- DetailView
-class PostDV(DetailView) :
+
+# --- DetailView
+class PostDV(DetailView):
     model = Post
 
-#--- ArchiveView
-class PostAV(ArchiveIndexView) :
+
+# --- ArchiveView
+class PostAV(ArchiveIndexView):
     model = Post
     date_field = 'modify_date'
 
-class PostYAV(YearArchiveView) :
+
+class PostYAV(YearArchiveView):
     model = Post
     date_field = 'modify_date'
     make_object_list = True
 
-class PostMAV(MonthArchiveView) :
+
+class PostMAV(MonthArchiveView):
     model = Post
     date_field = 'modify_date'
 
-class PostDAV(DayArchiveView) :
+
+class PostDAV(DayArchiveView):
     model = Post
     date_field = 'modify_date'
 
-class PostTAV(TodayArchiveView) :
+
+class PostTAV(TodayArchiveView):
     model = Post
     date_field = 'modify_date'
